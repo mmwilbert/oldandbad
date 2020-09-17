@@ -52,7 +52,7 @@
 </code></pre></div>
 
 
-<p>because the application context disappeared when the request returned. However, the logger is still there, and references to the logger will still work, so all you need to do is store <strong>app.logger</strong> (or <strong>current_app.logger</strong>) somewhere, or pass it into the thread, and logging should be available. I've just been including the logger as an argument to whatever. Here's what it looks like from a blueprint</p>
+<p>because the application context disappeared when the request returned. However, the logger is still there, and references to the logger will still work, so all you need to do is store <strong>app.logger</strong> (or <strong>current_app.logger</strong>) somewhere, or pass it into the thread, and logging should be available. I've just been including the logger as an argument to whatever function I'm starting in the thread. Here's what it looks like from a blueprint</p>
 <div class="highlight"><pre><span></span><code><span class="n">executor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">concurrent</span><span class="p">.</span><span class="n">futures</span><span class="p">.</span><span class="n">ThreadPoolExecutor</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
 
 <span class="n">def</span><span class="w"> </span><span class="n">longRunningTestFunction</span><span class="p">(</span><span class="n">logger</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
