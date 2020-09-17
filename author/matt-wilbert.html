@@ -32,13 +32,16 @@
         </address>
 <p>In <a href="https://mmwilbert.github.io/category/python.html">Python</a>.</p>
 <p>tags: <a href="https://mmwilbert.github.io/tag/flask.html">Flask</a> <a href="https://mmwilbert.github.io/tag/cloudrun.html">CloudRun</a> <a href="https://mmwilbert.github.io/tag/docker.html">Docker</a> </p>
-</footer><!-- /.post-info --><p>Generally speaking, logging from Flask[https://pypi.org/project/Flask] is straightforward. Flask uses standard Python logging, and you access the logger object via <strong>app.logger</strong>. So a call to the logger might look like</p>
+</footer><!-- /.post-info --><p>Generally speaking, logging from Flask(https://pypi.org/project/Flask) is straightforward. Flask uses standard Python logging, and you access the logger object via <strong>app.logger</strong>. So a call to the logger might look like</p>
 <div class="highlight"><pre><span></span><code><span class="err">app.logger.info(f&quot;{user.username} logged in&quot;)</span>
 </code></pre></div>
 
 
-<p>If you are using Flask blueprints, it gets slightly more complicated because you don't have the <strong>app</strong> object directly available. However, Flask knows you probably will need it, so they give you a way to get it, by importing <strong>current_app</strong>
-    from flask import current_app</p>
+<p>If you are using Flask blueprints, it gets slightly more complicated because you don't have the <strong>app</strong> object directly available. However, Flask knows you probably will need it, so they give you a way to get it, by importing <strong>current_app</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">current_app</span>
+</code></pre></div>
+
+
 <p>And you can just use <strong>current_app</strong> in the blueprint where you would otherwise have used <strong>app</strong></p>
 <div class="highlight"><pre><span></span><code><span class="err">current_app.logger.info(f&quot;(user.username} logged in&quot;)</span>
 </code></pre></div>
